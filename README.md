@@ -2,6 +2,10 @@
 
 *A developer-friendly alternative to WcfTestClient*
 
+### Installation
+
+Download the .exe installer from the [releases page](https://github.com/21robin12/wcfpad/releases)
+
 ### Features
 
  - Endpoints are saved even when closing WcfPad
