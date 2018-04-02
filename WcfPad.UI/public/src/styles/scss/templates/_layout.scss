@@ -1,0 +1,28 @@
+html, body {
+    @include font-standard();
+    height: 100%;
+    background: $grey-10;
+    overflow: hidden;
+}
+
+@include block("layout") {
+    height: 100%;
+    overflow: hidden;
+
+    $file-bar-height: 42px;
+
+    @include element("file-bar") {
+        height: $file-bar-height;
+        width: 100%;
+        background: $grey-20;
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+
+    @include element("content") {
+        padding-top: $file-bar-height;
+        box-sizing: border-box;
+        height: 100%;
+    }
+}

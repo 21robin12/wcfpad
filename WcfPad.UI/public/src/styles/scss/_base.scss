@@ -1,0 +1,20 @@
+@mixin font-standard {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe WPC,Segoe UI,HelveticaNeue-Light,Ubuntu,Droid Sans,sans-serif;
+    font-size: 16px;
+    font-feature-settings: 'liga' 0, 'calt' 0;
+}
+
+// colors
+$grey-10: #1E1E1E;
+$grey-20: #252526;
+$grey-30: #2D2D2D;
+$grey-40: #414141;
+$grey-50: #424242;
+$grey-60: #525252;
+
+$white: darken(white, 10);
+$aqua: #00CD9F;
+$orange: #FF6200;
+
+// sizing
+$gutter: 6px;

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9EB2F833-063E-4D31-8788-EB6D4D9E8A2A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WcfPad.Analysis</RootNamespace>
+    <AssemblyName>WcfPad.Analysis</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalysisService.cs" />
+    <Compile Include="EndpointCache.cs" />
+    <Compile Include="Helpers\EndpointDefinitionFactory.cs" />
+    <Compile Include="Helpers\EndpointFactory.cs" />
+    <Compile Include="Helpers\SectionGroupHelper.cs" />
+    <Compile Include="Helpers\PathHelper.cs" />
+    <Compile Include="Helpers\ParameterTypeFactory.cs" />
+    <Compile Include="Models\ParameterTypes\CircularParameterType.cs" />
+    <Compile Include="Models\Endpoint.cs" />
+    <Compile Include="Models\ParameterTypes\ArrayParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\BooleanParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\CharParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\DateTimeParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\DecimalParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\EnumParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\GuidParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\IntegerParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\NullableParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\KeyValuePairParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\DictionaryParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\CompoundParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\ParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\StringParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\TimeSpanParameterType.cs" />
+    <Compile Include="Models\ParameterTypes\UriParameterType.cs" />
+    <Compile Include="Models\Parameter.cs" />
+    <Compile Include="Models\Method.cs" />
+    <Compile Include="Models\EndpointDefinition.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\WcfClientBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

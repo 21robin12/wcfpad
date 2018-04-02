@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+    <link rel="stylesheet" href="../../dist/styles/global.css"/>
+    <link rel="stylesheet" href="../styles/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div class="layout">
+    <div class="layout__file-bar">
+        <div class="tabs"></div>
+        <div class="tabs--right">
+            <div class="tabs__tab--selected">
+                <i class="fa fa-terminal" aria-hidden="true"></i>
+                <span class="tab-name">Results</span>
+            </div>
+            <div class="tabs__tab">
+                <i class="fa fa-plug" aria-hidden="true"></i>
+                <span class="tab-name">Endpoints</span>
+            </div>
+        </div>
+    </div>
+    <div class="layout__content">
+        <div class="script-file">
+            <div class="script-file__panel">
+                <div class="left-panel-inner" id="monaco-container"></div>
+            </div>
+            <div class="script-file__panel--right">
+                <div class="right-panel-inner">
+                <div data-bind="text: time" class="result-item--time">14:06:31.678</div>
+                <div data-bind="text: text" class="result-item--result">{
+    "widget": {
+        "debug": "on",
+        "window": {
+            "title": "Sample Konfabulator Widget",
+            "name": "main_window",
+            "width": 500,
+            "height": 500
+        },
+        "image": {
+            "src": "Images/Sun.png",
+            "name": "sun1",
+            "hOffset": 250,
+            "vOffset": 250,
+            "alignment": "center"
+        },
+        "text": {
+            "data": "Click Here",
+            "size": 36,
+            "style": "bold",
+            "name": "text1",
+            "hOffset": 250,
+            "vOffset": 100,
+            "alignment": "center",
+            "onMouseUp": "sun1.opacity = (sun1.opacity / 100) * 90;"
+        }
+    }
+}</div>
+                    <div data-bind="text: time" class="result-item--time">14:04:01.590</div>
+                    <div data-bind="text: text" class="result-item--error">Exception has been thrown by the target of an invocation. Inner Exception: ERROR MESSAGE HERE</div>
+
+                <div data-bind="text: time" class="result-item--time">14:06:31.678</div>
+                 <div data-bind="text: text" class="result-item--result">{
+    "widget": {
+        "debug": "on",
+        "window": {
+            "title": "Sample Konfabulator Widget",
+            "name": "main_window",
+            "width": 500,
+            "height": 500
+        },
+        "image": {
+            "src": "Images/Sun.png",
+            "name": "sun1",
+            "hOffset": 250,
+            "vOffset": 250,
+            "alignment": "center"
+        },
+        "text": {
+            "data": "Click Here",
+            "size": 36,
+            "style": "bold",
+            "name": "text1",
+            "hOffset": 250,
+            "vOffset": 100,
+            "alignment": "center",
+            "onMouseUp": "sun1.opacity = (sun1.opacity / 100) * 90;"
+        }
+    }
+                    </div>
+                </div>
+            </div>
+            <div class="script-file__action-bar">
+                <button>
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                    RUN SCRIPT
+                </button>
+                <button class="loading right">
+                    <i class="fa fa-plug" aria-hidden="true"></i>
+                    ADD
+                </button>
+                <input type="text" spellcheck="false" />
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+// global styles
+@import '_base';
+
+// utilities
+@import 'utilities/_reset';
+@import 'utilities/_bem';
+@import 'utilities/_mixins';
+@import 'utilities/_classes.scss';
+
+// templates
+@import 'templates/_layout';
+@import 'templates/_main';
+
+// modules
+@import 'modules/_endpoint.scss';
+@import 'modules/_tabs.scss';
+@import 'modules/_result-item.scss';

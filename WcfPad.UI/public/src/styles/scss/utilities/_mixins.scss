@@ -1,0 +1,12 @@
+﻿@mixin scrollbar {
+    &::-webkit-scrollbar {
+        width: 14px;
+        border-left: 1px solid $grey-40;
+        background-color: $grey-10;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $grey-50;
+        border-left: 1px solid $grey-60;
+    }
+}

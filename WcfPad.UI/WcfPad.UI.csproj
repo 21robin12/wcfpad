@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.props" Condition="Exists('..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.props')" />
+  <Import Project="..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0A4BBB0A-92B3-46A2-9E4F-398DA6077DA1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WcfPad.UI</RootNamespace>
+    <AssemblyName>WcfPad.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AjaxObject.cs" />
+    <Compile Include="CefForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CefForm.Designer.cs">
+      <DependentUpon>CefForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Controller.cs" />
+    <Compile Include="Controllers\MainPageController.cs" />
+    <Compile Include="CustomCefSettings.cs" />
+    <Compile Include="DependencyInjection.cs" />
+    <Compile Include="Models\Error.cs" />
+    <Compile Include="Models\Pages\BasePageViewModel.cs" />
+    <Compile Include="Models\Pages\MainPageViewModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <TypeScriptCompile Include="public\src\scripts\ts\NotificationViewModel.ts" />
+    <TypeScriptCompile Include="public\src\scripts\ts\Clipboard.ts" />
+    <TypeScriptCompile Include="public\src\scripts\ts\completion\CompletionTreeItem.ts" />
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="public\src\package.json" />
+    <None Include="public\src\styles\scss\global.scss" />
+    <None Include="public\src\styles\scss\modules\_result-item.scss" />
+    <None Include="public\src\styles\scss\modules\_tabs.scss" />
+    <None Include="public\src\styles\scss\modules\_endpoint.scss" />
+    <None Include="public\src\styles\scss\templates\_layout.scss" />
+    <None Include="public\src\styles\scss\templates\_main.scss" />
+    <None Include="public\src\styles\scss\utilities\_bem.scss" />
+    <None Include="public\src\styles\scss\utilities\_mixins.scss" />
+    <None Include="public\src\styles\scss\utilities\_classes.scss" />
+    <None Include="public\src\styles\scss\utilities\_reset.scss" />
+    <None Include="public\src\styles\scss\_base.scss" />
+    <None Include="public\src\styles\lib\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <None Include="public\src\styles\lib\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <None Include="public\src\styles\lib\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <None Include="public\src\styles\lib\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <None Include="public\src\styles\lib\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <None Include="Views\Main.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <EmbeddedResource Include="CefForm.resx">
+      <DependentUpon>CefForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Views\Shared\_Layout.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="public\src\scripts\ts\completion\CompletionTreeItemFactory.ts" />
+    <TypeScriptCompile Include="public\src\scripts\ts\completion\CustomCompletionItemProvider.ts" />
+    <Content Include="icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public\src\images\loading.gif" />
+    <Content Include="public\src\sandbox\index-endpoints.html" />
+    <Content Include="public\src\scripts\lib\require.js" />
+    <Content Include="public\src\sandbox\index.html" />
+    <Content Include="public\src\gulpfile.js" />
+    <TypeScriptCompile Include="public\src\scripts\ts\EndpointsPanelViewModel.ts" />
+    <TypeScriptCompile Include="public\src\scripts\ts\typings\knockout.d.ts" />
+    <TypeScriptCompile Include="public\src\scripts\ts\_ko.extensions.ts" />
+    <TypeScriptCompile Include="public\src\scripts\ts\Endpoint.ts" />
+    <TypeScriptCompile Include="public\src\scripts\ts\ResultsPanelViewModel.ts" />
+    <TypeScriptCompile Include="public\src\scripts\ts\MainPageViewModel.ts" />
+    <TypeScriptCompile Include="public\src\scripts\ts\Ajax.ts" />
+    <Content Include="public\src\scripts\lib\knockout-3.4.0.min.js" />
+    <Content Include="public\src\styles\lib\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="public\src\styles\lib\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\WcfPad.Analysis\WcfPad.Analysis.csproj">
+      <Project>{9eb2f833-063e-4d31-8788-eb6d4d9e8a2a}</Project>
+      <Name>WcfPad.Analysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfPad.Invocation\WcfPad.Invocation.csproj">
+      <Project>{d3062235-4e19-47cd-834c-1cf90c870de8}</Project>
+      <Name>WcfPad.Invocation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets" Condition="Exists('..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.targets'))" />
+  </Target>
+  <Import Project="..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets" Condition="Exists('..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets')" />
+  <Import Project="..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.targets')" />
+  <Import Project="..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.targets" Condition="Exists('..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY "$(ProjectDir)public\dist" "$(ProjectDir)bin\$(Platform)\$(ConfigurationName)\public\dist" /e /i /y /s
+XCOPY "$(ProjectDir)public\src\node_modules\monaco-editor\min\vs" "$(ProjectDir)bin\$(Platform)\$(ConfigurationName)\public\dist\vs" /e /i /y /s
+XCOPY "$(ProjectDir)public\src\styles\lib\font-awesome-4.7.0" "$(ProjectDir)bin\$(Platform)\$(ConfigurationName)\public\dist\styles\font-awesome-4.7.0" /e /i /y /s
+XCOPY "$(ProjectDir)public\src\images" "$(ProjectDir)bin\$(Platform)\$(ConfigurationName)\public\dist\images" /e /i /y /s</PostBuildEvent>
+  </PropertyGroup>
+</Project>

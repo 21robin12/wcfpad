@@ -1,0 +1,38 @@
+@include block("tabs") {
+    width: 50%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+
+    @include modifier("right") {
+        border-left: 1px solid $grey-40;
+    }
+
+    @include element("tab") {
+        height: 100%;
+        color: $white;
+        display: inline-block;
+        line-height: 42px;
+        padding: 0 20px;
+        font-weight: bold;
+        cursor: pointer;
+        user-select: none;
+
+        @include modifier("selected") {
+            background: $grey-10;
+            cursor: default;
+        }
+
+        .notification {
+            padding: 0 8px;
+            color: $orange;
+            font-size: 12px;
+        }
+
+        .tab-name {
+            @media screen and (max-width: 680px) {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,116 @@
+@include block("script-file") {
+    height: 100%;
+    overflow: hidden;
+
+    $action-bar-height: 42px;
+    $results-panel-height: 330px;
+
+    @include element("panel") {
+        float: left;
+        padding-bottom: $action-bar-height;
+        box-sizing: border-box;
+        height: 100%;
+        width: 50%;
+
+        @include modifier("right") {
+            border-left: 1px solid $grey-40;
+        }
+
+        .left-panel-inner {
+            height: 100%;
+            width: 100%;
+        }
+
+        .right-panel-inner {
+            @include scrollbar;
+            height: 100%;
+            width: 100%;
+            overflow-y: scroll;
+        }
+    }
+
+    @include element("action-bar") {
+        height: $action-bar-height;
+        width: 100%;
+        background: darken($aqua, 5);
+        position: fixed;
+        left: 0;
+        bottom: 0px;
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            height: 100%;
+            line-height: 100%;
+            color: $white;
+            padding: 0 5px;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 0 10px;
+
+            &:hover {
+                background: $aqua;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &.right {
+                float: right;
+            }
+
+            &.loading {
+                color: $aqua;
+
+                &:hover {
+                    background: none;
+                    cursor: not-allowed;
+                }
+            }
+        }
+
+        input[type=text] {
+            @include font-standard();
+
+            $height: $action-bar-height - (2 * $gutter);
+
+            color: $white;
+            background: darken($aqua, 10);
+            border: none;
+            font-size: 14px;
+            line-height: $height;
+            height: $height;
+            padding: 0 5px;
+            float: right;
+            margin: $gutter;
+            width: 60%;
+            max-width: 600px;
+
+            &:focus {
+                outline: none;
+            }
+
+            @media screen and (max-width: 650px) {
+                width: 50%;
+            }
+
+            @media screen and (max-width: 550px) {
+                width: 40%;
+            }
+
+            @media screen and (max-width: 450px) {
+                width: 30%;
+            }
+
+            @media screen and (max-width: 380px) {
+                width: 20%;
+            }
+
+            @media screen and (max-width: 350px) {
+                width: 15%;
+            }
+        }
+    }
+}

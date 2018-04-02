@@ -1,0 +1,29 @@
+
+@include block("result-item") {
+    float: left;
+    white-space: pre-wrap;
+    color: silver;
+    font-family: Consolas, monaco, monospace;
+    width: 100%;
+    word-break: break-all;
+    box-sizing: border-box;
+    padding: 8px 2px;
+
+    @include modifier("time") {
+        text-align: left;
+        padding: 2px;
+        font-size: 20px;
+    }
+
+    @include modifier("result") {
+        border-top: 1px solid $grey-50;
+        border-bottom: 1px solid $grey-50;
+    }
+
+    @include modifier("error") {
+        background: #280000;
+        color: #FF7F7F;
+        border-top: 1px solid #5B0000;
+        border-bottom: 1px solid #5B0000;
+    }
+}

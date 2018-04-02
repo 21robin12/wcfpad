@@ -1,0 +1,40 @@
+/// <reference path="../_base.scss" />
+
+// BEM: Block
+@mixin block($name, $description: "") {
+    /**
+     * #{$name}
+     * #{$description}
+     */
+    .#{$name} {
+        @content;
+    }
+}
+
+// BEM: Element
+@mixin element($name) {
+    @at-root #{&}__#{$name} {
+        @content;
+    }
+}
+
+// BEM: Modifier
+@mixin modifier($name) {
+    @at-root {
+        // --------
+        // OPTIONAL
+        // --------
+        // This saves you from having to specify
+        // class="widget widget--big" on the HTML node.
+        // Instead class="widget--big" would be enough.
+        $selector: nth(&, 1);
+        $parent: nth($selector, length($selector));
+        #{$parent}--#{$name} {
+            @extend #{$parent} !optional;
+        }
+        // Add the modifier and rules
+        #{&}--#{$name} {
+            @content;
+        }
+    }
+}

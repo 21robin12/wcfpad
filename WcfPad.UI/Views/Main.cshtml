@@ -1,0 +1,107 @@
+﻿@inherits RazorEngine.Templating.TemplateBase<WcfPad.UI.Models.Pages.MainPageViewModel>
+@{
+    Layout = "Views/Shared/_Layout.cshtml";
+}
+
+<div id="main" style="height: 100%" data-bind="template: { name: 'main-template' }"></div>
+
+<script type="text/html" id="main-template">
+    <div class="layout">
+        <div class="layout__file-bar">
+            <div class="tabs">
+                <div class="tabs__tab--selected">
+                    <i class="fa fa-code" aria-hidden="true"></i>
+                    <span class="tab-name">Script Editor</span>
+                </div>
+            </div>
+            <div class="tabs--right">
+                <div data-bind="css: selectedTabIndex() === 0 ? 'tabs__tab--selected' : 'tabs__tab', click: function() { selectTab(0) }">
+                    <i class="fa fa-terminal" aria-hidden="true"></i>
+                    <span class="tab-name">Results</span>
+                    <i class="fa fa-circle notification" aria-hidden="true" data-bind="style: { opacity: resultsPanelViewModel.notificationViewModel.opacity }"></i>
+                </div>
+                <div data-bind="css: selectedTabIndex() === 1 ? 'tabs__tab--selected' : 'tabs__tab', click: function() { selectTab(1) }">
+                    <i class="fa fa-plug" aria-hidden="true"></i>
+                    <span class="tab-name">Endpoints</span>
+                    <i class="fa fa-circle notification" aria-hidden="true" data-bind="style: { opacity: endpointsPanelViewModel.notificationViewModel.opacity }"></i>
+                </div>
+            </div>
+        </div>
+        <div class="layout__content">
+            <div class="script-file">
+                <!-- MONACO -->
+                <div class="script-file__panel">
+                    <div class="left-panel-inner" id="monaco-container">
+                    </div>
+                </div>
+
+                <!-- RESULTS PANEL -->
+                <div class="script-file__panel--right" data-bind="with: resultsPanelViewModel, visible: selectedTabIndex() === 0">
+                    <div class="right-panel-inner" id="results-panel">
+                        <div data-bind="foreach: results">
+                            <div data-bind="text: time" class="result-item--time"></div>
+                            <!-- ko if: !isError -->
+                            <div data-bind="text: text" class="result-item--result"></div>
+                            <!-- /ko -->
+                            <!-- ko if: isError -->
+                            <div data-bind="text: text" class="result-item--error"></div>
+                            <!-- /ko -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ENDPOINTS PANEL -->
+                <div class="script-file__panel--right" data-bind="with: endpointsPanelViewModel, visible: selectedTabIndex() === 1">
+                    <div class="right-panel-inner">
+                        <div data-bind="foreach: endpoints">
+                            <div class="endpoint-wrapper">
+                                <div class="endpoint">
+                                    <div class="address-wrapper">
+                                        <input type="text" class="address-wrapper__address" spellcheck="false" data-bind="textInput: name, hasFocus: hasFocus" />
+                                    </div>
+
+                                    <div class="icons-wrapper">
+                                        <div class="icons-wrapper__icon" data-bind="hover: hoverCopy, click: () => { $parent.copyAddressToClipboard($index()) }">
+                                            <i class="fa fa-files-o" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="icons-wrapper__icon" data-bind="hover: hoverRebuild, click: () => { $parent.rebuildWcfClient($index()) }">
+                                            <i class="fa fa-repeat" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="icons-wrapper__icon" data-bind="hover: hoverOpenFolder, click: () => { $parent.openClientFolder($index()) }">
+                                            <i class="fa fa-folder-o" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="icons-wrapper__icon--last" data-bind="hover: hoverDelete, click: () => { $parent.deleteEndpoint($index()) }">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="popover" data-bind="visible: showPopover, text: popoverText"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACTION BAR -->
+                <div class="script-file__action-bar">
+                    <button data-bind="click: invoke, css: { loading: isLoading }">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        RUN SCRIPT
+                    </button>
+                    <button class="right" data-bind="click: addEndpoint, css: { loading: isLoading }">
+                        <i class="fa fa-plug" aria-hidden="true"></i>
+                        ADD
+                    </button>
+                    <input type="text" spellcheck="false" data-bind="textInput: address, event: { keypress: onEndpointInputKeyPress }"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+\
+<script src="public/dist/scripts/global.js"></script>
+
+<script>
+    var viewModel = new MainPageViewModel();
+    ko.applyBindings(viewModel, document.getElementById("main"));
+</script>
