@@ -29,6 +29,7 @@ namespace WcfPad.UI
             Text = "WcfPad";
 
             var settings = new CefSettings();
+            // see https://github.com/cefsharp/CefSharp/wiki/General-Usage#high-dpi-displayssupport
             Cef.EnableHighDPISupport();
             Cef.Initialize(settings);
 
