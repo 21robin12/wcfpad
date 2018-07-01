@@ -29,6 +29,7 @@ namespace WcfPad.UI
             Text = "WcfPad";
 
             var settings = new CefSettings();
+            Cef.EnableHighDPISupport();
             Cef.Initialize(settings);
 
             _browser = new ChromiumWebBrowser(string.Empty) { Dock = DockStyle.Fill };
