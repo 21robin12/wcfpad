@@ -17,7 +17,13 @@ namespace WcfPad.Analysis.Helpers
     {
         public string GetWcfPadAppDataDirectory()
         {
-            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "WcfPad");
+            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "WcfPad");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            return path;
         }
 
         public string GetSvcutilPath()
