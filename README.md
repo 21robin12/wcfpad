@@ -4,7 +4,9 @@
 
 ### Installation
 
-Download the .exe installer from the [releases page](https://github.com/21robin12/wcfpad/releases)
+Download and run the .exe installer from the [releases page](https://github.com/21robin12/wcfpad/releases)
+
+> You might receive a warning stating `Windows Defender SmartScreen prevented an unrecognized app from starting. Running this app might put your PC at risk.` - if so, select `More info` followed by `Run anyway`
 
 ### Features
 
