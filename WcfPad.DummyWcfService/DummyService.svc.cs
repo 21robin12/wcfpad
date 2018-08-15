@@ -95,6 +95,11 @@ namespace WcfPad.DummyWcfService
             return response;
         }
 
+        public string GetLargeResponse()
+        {
+            return new string('A', 100_000_000);
+        }
+
         private CircularResponseItem From(CircularRequestItem item)
         {
             if (item == null)

@@ -25,5 +25,8 @@ namespace WcfPad.DummyWcfService
 
         [OperationContract]
         CircularResponse GetSelfReferentialResponse();
+
+        [OperationContract]
+        string GetLargeResponse();
     }
 }
